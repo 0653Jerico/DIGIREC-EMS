@@ -15,6 +15,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.3s ease;
+    z-index: 2;
 }
 
 .sidebar.hidden {
@@ -73,6 +74,7 @@ body {
     padding: 0 20px;
     box-sizing: border-box;
     transition: left 0.3s ease;
+    z-index: 1;
 }
 
 .burger-menu span {
@@ -115,4 +117,55 @@ body {
 
 .top-profile.active .dropdown-content {
     display: block;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .profile h2 {
+        font-size: 20px; /* Increase font size for medium screens */
+    }
+
+    .nav-links a {
+        font-size: 18px; /* Increase font size for medium screens */
+    }
+
+    .contact {
+        font-size: 18px; /* Increase font size for medium screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        transform: translateX(-100%);
+    }
+
+    .top-navbar {
+        left: 0;
+        right: 0;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+
+    .sidebar.hidden {
+        display: none;
+    }
+
+    .profile h2 {
+        font-size: 16px;
+    }
+
+    .nav-links a {
+        padding: 8px 16px;
+        font-size: 16px; /* Adjust font size for small screens */
+    }
+
+    .contact {
+        padding: 16px;
+        font-size: 16px; /* Adjust font size for small screens */
+    }
 }
