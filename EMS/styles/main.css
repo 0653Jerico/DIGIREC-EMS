@@ -43,11 +43,43 @@ header {
     font-size: 2rem;
 }
 
+.right-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
 .right-header a {
-    margin-left: 20px;
-    color: #fff;
+    margin-right: 15px; /* Adjust spacing as needed */
     text-decoration: none;
-    font-size: 16px;
+    color: #dfdfdf; /* Use a color that matches your theme */
+    font-weight: normal; /* Adjust font weight to match your design */
+    font-family: Arial, sans-serif; /* Use your organization's font */
+}
+
+.right-header a:hover {
+    color: #555; /* Adjust hover color to match your theme */
+}
+
+.right-header .form {
+    margin: 0;
+}
+
+.right-header button {
+    background-color: #333; /* Use a color that matches your theme */
+    color: #fff;
+    border: 1px solid #333; /* Add border if needed */
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Arial, sans-serif; /* Use your organization's font */
+}
+
+.right-header button:hover {
+    background-color: #555; /* Adjust hover color to match your theme */
+    border-color: #555; /* Adjust border color on hover */
 }
 
 aside {
