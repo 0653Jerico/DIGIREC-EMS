@@ -49,12 +49,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 url = 'dashboard.php';
             } else if (this.dataset.option === 'add-patient') {
                 url = 'addPatient.php';
+            } else if (this.dataset.option === 'existing-patient') {
+                url = 'existingPatient.php';
             } else if (this.dataset.option === 'manage-records') {
-                url = 'manageRecords.php';
+                url = 'manageRecords.php'
             } else if (this.dataset.option === 'settings') {
                 url = 'settings.php'
-            }
-
+            } 
+                
             // Fetch content from the appropriate PHP file
             if (url) {
                 fetch(url)
