@@ -48,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Execute the prepared statement
         $stmt->execute();
 
+        
         echo "Patient information submitted successfully.";
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
