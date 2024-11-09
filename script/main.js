@@ -1,4 +1,4 @@
-// main.js
+// main.js 
 document.addEventListener('DOMContentLoaded', function () {
     const burgerToggle = document.getElementById('burger-toggle');
     const closeAside = document.getElementById('close-aside');

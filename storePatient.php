@@ -1,9 +1,9 @@
 <?php 
 
 // Include the database connection file
-require_once 'db.php';
+require_once 'includes/db.php';
 
-// Check if the form is submitted
+// Check if the form is submitted 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve and sanitize form inputs
     $patientName = htmlspecialchars($_POST['patient-name'], ENT_QUOTES, 'UTF-8');
@@ -49,8 +49,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
 
         
-        echo "Patient information submitted successfully.";
+        // Return a JSON response
+        echo json_encode(['status' => 'success', 'message' => 'Patient information submitted successfully.']);
     } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+        echo json_encode(['status' => 'error', 'message' => 'Error: ' . $e->getMessage()]);
     }
+    exit; // Ensure no further output is sent
 }

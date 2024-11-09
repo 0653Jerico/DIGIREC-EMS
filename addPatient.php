@@ -1,6 +1,7 @@
 <?php
 // addPatient.php
-
+require_once 'includes/db.php';
+require_once 'storePatient.php'
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +12,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/addPatient.css">
     <title>Add Patient</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("form");
+            form.addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                const formData = new FormData(form);
+
+                fetch("storePatient.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message); // Display the popup with the response message
+
+                    if (data.status === "success") {
+                        form.reset(); // Optionally reset the form
+                        window.location.reload(); // Refresh the page
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("An error occurred while submitting the form.");
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
