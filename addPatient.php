@@ -17,7 +17,7 @@
     <div class="main-content">
         <div class="add-patient-form">
             <h2>Personal Information</h2>
-            <form action="includes/storePatient.php" method="post">
+            <form action="storePatient.php" method="post">
                 <div>
                     <label for="patient-name">Patient Name:</label>
                     <input id="patient-name" type="text" name="patient-name" required>
