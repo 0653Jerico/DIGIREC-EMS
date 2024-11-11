@@ -3,22 +3,22 @@ require_once 'includes/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve and sanitize form inputs
-    $patientName = htmlspecialchars($_POST['patient-name'], ENT_QUOTES, 'UTF-8');
-    $contact = htmlspecialchars($_POST['contact'], ENT_QUOTES, 'UTF-8');
-    $motherName = htmlspecialchars($_POST['mother-name'], ENT_QUOTES, 'UTF-8');
-    $fatherName = htmlspecialchars($_POST['father-name'], ENT_QUOTES, 'UTF-8');
-    $birthday = htmlspecialchars($_POST['birthday'], ENT_QUOTES, 'UTF-8');
-    $address = htmlspecialchars($_POST['address'], ENT_QUOTES, 'UTF-8');
-    $gender = htmlspecialchars($_POST['gender'], ENT_QUOTES, 'UTF-8');
+    $patientName = htmlspecialchars(trim($_POST['patient-name']), ENT_QUOTES, 'UTF-8');
+    $contact = htmlspecialchars(trim($_POST['contact']), ENT_QUOTES, 'UTF-8');
+    $motherName = htmlspecialchars(trim($_POST['mother-name']), ENT_QUOTES, 'UTF-8');
+    $fatherName = htmlspecialchars(trim($_POST['father-name']), ENT_QUOTES, 'UTF-8');
+    $birthday = htmlspecialchars(trim($_POST['birthday']), ENT_QUOTES, 'UTF-8');
+    $address = htmlspecialchars(trim($_POST['address']), ENT_QUOTES, 'UTF-8');
+    $gender = htmlspecialchars(trim($_POST['gender']), ENT_QUOTES, 'UTF-8');
     $age = filter_var($_POST['age'], FILTER_VALIDATE_INT);
-    $term = htmlspecialchars($_POST['term'], ENT_QUOTES, 'UTF-8');
-    $delivery = htmlspecialchars($_POST['delivery'], ENT_QUOTES, 'UTF-8');
-    $birthplace = htmlspecialchars($_POST['birthplace'], ENT_QUOTES, 'UTF-8');
-    $birthWeight = htmlspecialchars($_POST['birth-weight'], ENT_QUOTES, 'UTF-8');
-    $birthLength = htmlspecialchars($_POST['birth-length'], ENT_QUOTES, 'UTF-8');
-    $headCirc = htmlspecialchars($_POST['head-circ'], ENT_QUOTES, 'UTF-8');
-    $chestCirc = htmlspecialchars($_POST['chest-circ'], ENT_QUOTES, 'UTF-8');
-    $abdominalCirc = htmlspecialchars($_POST['abdominal-circ'], ENT_QUOTES, 'UTF-8');
+    $term = htmlspecialchars(trim($_POST['term']), ENT_QUOTES, 'UTF-8');
+    $delivery = htmlspecialchars(trim($_POST['delivery']), ENT_QUOTES, 'UTF-8');
+    $birthplace = htmlspecialchars(trim($_POST['birthplace']), ENT_QUOTES, 'UTF-8');
+    $birthWeight = htmlspecialchars(trim($_POST['birth-weight']), ENT_QUOTES, 'UTF-8');
+    $birthLength = htmlspecialchars(trim($_POST['birth-length']), ENT_QUOTES, 'UTF-8');
+    $headCirc = htmlspecialchars(trim($_POST['head-circ']), ENT_QUOTES, 'UTF-8');
+    $chestCirc = htmlspecialchars(trim($_POST['chest-circ']), ENT_QUOTES, 'UTF-8');
+    $abdominalCirc = htmlspecialchars(trim($_POST['abdominal-circ']), ENT_QUOTES, 'UTF-8');
 
     try {
         // Prepare an SQL statement for execution
@@ -47,6 +47,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         echo "Patient information added successfully.";
     } catch (Exception $e) {
-        echo "Failed to add patient: " . $e->getMessage();
+        echo "Error: " . $e->getMessage();
     }
 }
