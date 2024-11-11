@@ -1,7 +1,6 @@
 <?php
 // addPatient.php
 require_once 'includes/db.php';
-// Do not include storePatient.php here, as it should be called via AJAX
 ?>
 
 <!DOCTYPE html>
@@ -12,14 +11,14 @@ require_once 'includes/db.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/addPatient.css">
     <title>Add Patient</title>
+    <script src="script/main.js" defer></script> <!-- Link to the main.js file -->
 </head>
 
 <body>
     <div class="main-content">
         <div class="add-patient-form">
             <h2>Personal Information</h2>
-            <form id="add-patient-form" method="post">
-                <!-- Form fields here -->
+            <form id="add-patient-form" method="POST" action="storePatient.php">
                 <div>
                     <label for="patient-name">Patient Name:</label>
                     <input id="patient-name" type="text" name="patient-name" required>
@@ -111,40 +110,6 @@ require_once 'includes/db.php';
             </form>
         </div>
     </div>
-
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const form = document.getElementById("add-patient-form");
-        form.addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            const formData = new FormData(form);
-
-            fetch("storePatient.php", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                alert(data.message); // Display the popup with the response message
-
-                if (data.status === "success") {
-                    form.reset(); // Optionally reset the form
-                    window.location.href = "addPatient.php"; // Reload the page
-                }
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                alert("An error occurred while submitting the form.");
-            });
-        });
-    });
-</script>
 </body>
 
 </html>
