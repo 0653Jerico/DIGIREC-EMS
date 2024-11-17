@@ -38,6 +38,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 case 'settings':
                     url = 'settings.php';
                     break;
+                case 'notification':
+                    url = 'notification.html';
+                    break;
+                case 'profile':
+                    url = 'profile.html';
+                    break;
             }
 
             if (url) {
